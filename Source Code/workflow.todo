@@ -1,0 +1,187 @@
+☐ A connection to database (dependent on user)
+
+☐ Users (four): 
+☐      1. Admin (Root and Employee)
+☐      2. Customer (Personal and Business)
+
+☐ Basic Functionalities: [Also have the functionalities for `reading` and `deleting` all the data from a given table (admin level only)]
+☐      01. Branch                        -        CRU   one   (+R All)
+☐      02. Bank_Account                  -        CRU   one   (+R Some)    (+close/open account)
+☐      03. Department                    -        CRUD  one   (+R All)
+☐      04. Employee                      -        CRUD  one   (+R Some)
+☐      05. Branch_Managed_By             -        CRU   one   (+R Some)
+☐      06. Customer                      -        CRU   one   (+R Some)
+☐      07. Customer_Phone_Number         -        CRD   one   (+R Some)
+☐      08. Collateral                    -        CRUD  one   (+R Some)
+☐      09. Documents_Link                -        CRUD  one   (+R Some)
+☐      10. Personal_Customer             -        CRU   one   (+R Some)
+☐      11. Business_Customer             -        CRU   one   (+R Some)
+☐      12. Savings_Account               -        CRU   one   (+R Some)    (+close/open account)
+☐      13. Current_Account               -        CRU   one   (+R Some)    (+close/open account)
+☐      14. Minor_Account                 -        CRU   one   (+R Some)    (+close/open account)
+☐      15. Zero_Balance_Account          -        CRU   one   (+R Some)    (+close/open account)
+☐      16. Card                          -        CRU   one   (+R Some)    (+block/unblock card)
+☐      17. Debit_Card                    -        CRU   one   (+R Some)    (+block/unblock card)
+☐      18. Prepaid_Card                  -        CRU   one   (+R Some)    (+block/unblock card)
+☐      19. ATM_Card                      -        CRU   one   (+R Some)    (+block/unblock card)
+☐      20. Credit_Card                   -        CRU   one   (+R Some)    (+block/unblock card)
+☐      21. Account_Linked_Credit_Card    -        CRU   one   (+R Some)    (+block/unblock card)
+☐      22. Loan                          -        CRU   one   (+R Some)
+☐      23. Collateral_Loan               -        CRU   one   (+R Some)
+☐      24. Non_Collateral_Loan           -        CRU   one   (+R Some)
+☐      25. Documents_PDF                 -        CRUD  one   (+R Some)
+☐      26. Loan_Account                  -        CRU   one   (+R Some)    (+close/open account)
+☐      27. Insurance                     -        CRU   one   (+R Some)
+☐      28. Asset_Insurance               -        CRU   one   (+R Some)
+☐      29. Loan_Protection_Insurance     -        CRU   one   (+R Some)
+☐      30. Term_Life_Insurance           -        CRU   one   (+R Some)
+☐      31. Medical_Insurance             -        CRU   one   (+R Some)
+☐      32. Transaction_Details           -        CRU   one   (+R Some)
+☐      33. Passbook                      -        CRU   one
+☐      34. UPI                           -        CRU   one   (+R Some)
+☐      35. UPI_Transactions              -        CRU   one   (+R Some)
+☐      36. Bill_Payment                  -        CRUD  one
+☐      37. Card_Transactions             -        CRU   one   (+R Some)
+☐      38. Auto_Payment                  -        CRUD  one   (+R Some)
+☐      39. Auto_Payment_Loan             -        CRUD  one   (+R Some)
+☐      40. Auto_Bill_Payment             -        CRUD  one   (+R Some)
+☐      41. Transaction_Log               -        CR    one   (+D All)
+☐      42. Ad_Channel                    -        CRUD  one   (+R All)
+☐      43. Advertisement                 -        CRUD  one   (+R Some)
+☐      44. User_Credentials              -        CRU   one
+☐      45. Employee_Credentials          -        CRU   one
+☐      46. Fixed_Deposit                 -        CRUD  one   (+R Some)
+☐      47. Recurring_Deposit             -        CRUD  one   (+R Some)
+☐      48. Chequebook                    -        CR    one
+☐      49. Bank_Statement                -        CR    one   (+R Some)
+☐      50. OTPs                          -        CR    one   (+D All)
+☐      51. Installment                   -        CRU   one   (+R Some)
+☐      52. Closed_Account                -        CRD   one
+☐      53. Blocked_Card                  -        CRD   one
+
+☐ Main Functionalities:
+
+☐ [Database Administrator]
+☐      01. All the functionalities of a Database Admin like modifying relational schemas, deleting or adding a new relation, involve modifying the basic structure of the database alongwith the application and hence, are beyond the scope of our application. 
+
+☐ [Admin - Root User]
+☐      01. Read all data from a given table
+☐      02. Truncate all data from a given table
+☐      03. All the above mentioned Basic Functionalities
+
+☐ [Employee]
+☐      01. Employee                      -        RU    own
+☐      02. Bank_Account                  -        CRU   one   (+close/open account)
+☐      03. Customer                      -        CRU   one  
+☐      04. Customer_Phone_Number         -        CRD   one   (+R some)
+☐      05. Collateral                    -        CRUD  one   (+R some)
+☐      06. Documents_Link                -        CRUD  one   (+R Some)
+☐      07. Personal_Customer             -        CRU   one
+☐      08. Business_Customer             -        CRU   one
+☐      09. Savings_Account               -        CRU   one   (+close/open account)
+☐      10. Current_Account               -        CRU   one   (+close/open account)
+☐      11. Minor_Account                 -        CRU   one   (+close/open account)
+☐      12. Zero_Balance_Account          -        CRU   one   (+close/open account)
+☐      13. Card                          -        CRU   one   (+block/unblock card)
+☐      14. Debit_Card                    -        CRU   one   (+block/unblock card)
+☐      15. Prepaid_Card                  -        CRU   one   (+block/unblock card)
+☐      16. ATM_Card                      -        CRU   one   (+block/unblock card)
+☐      17. Credit_Card                   -        CRU   one   (+block/unblock card)
+☐      18. Account_Linked_Credit_Card    -        CRU   one   (+block/unblock card)
+☐      19. Loan                          -        CRU   one   (+R Some)
+☐      20. Collateral_Loan               -        CRU   one   (+R Some)
+☐      21. Non_Collateral_Loan           -        CRU   one   (+R Some)
+☐      22. Documents_PDF                 -        CRUD  one   (+R Some)
+☐      23. Loan_Account                  -        CRU   one   (+close/open account)
+☐      24. Insurance                     -        CRU   one   (+R Some)
+☐      25. Asset_Insurance               -        CRU   one   (+R Some)
+☐      26. Loan_Protection_Insurance     -        CRU   one   (+R Some)
+☐      27. Term_Life_Insurance           -        CRU   one   (+R Some)
+☐      28. Medical_Insurance             -        CRU   one   (+R Some)
+☐      29. Transaction_Details           -        R     one   (+R Some)
+☐      30. Passbook                      -        CRU   one
+☐      31. Card_Transactions             -        R     one   (+R Some)
+☐      32. Transaction_Log               -        R     one   (+D All)
+☐      33. Ad_Channel                    -        CRUD  one   (+R All)
+☐      34. Advertisement                 -        CRUD  one   (+R Some)
+☐      35. Employee_Credentials          -        RU    own
+☐      36. Fixed_Deposit                 -        CRUD  one   (+R Some)
+☐      37. Recurring_Deposit             -        CRUD  one   (+R Some)
+☐      38. Chequebook                    -        CR    one
+☐      39. Bank_Statement                -        R     one   (+R Some)
+☐      40. Installment                   -        CRU   one   (+R Some)
+☐      41. Closed_Account                -        CRD   one
+☐      42. Blocked_Card                  -        CRD   one
+
+☐ [Personal Customer]
+☐      01. Bank_Account                  -        RU    own   (+close/open account)
+☐      02. Customer_Phone_Number         -        CRD   own   (+R Some)
+☐      03. Savings_Account               -        CRU   own   (+close/open account)
+☐      04. Minor_Account                 -        CRU   own   (+close/open account)
+☐      05. Zero_Balance_Account          -        CRU   own   (+close/open account)
+☐      06. Card                          -        CRU   own   (+block/unblock card)
+☐      07. Debit_Card                    -        CRU   own   (+block/unblock card)
+☐      08. Prepaid_Card                  -        CRU   own   (+block/unblock card)
+☐      09. ATM_Card                      -        CRU   own   (+block/unblock card)
+☐      10. Credit_Card                   -        CRU   own   (+block/unblock card)
+☐      11. Account_Linked_Credit_Card    -        CRU   own   (+block/unblock card)
+☐      12. Loan                          -        CRU   own   
+☐      13. Collateral_Loan               -        CRU   own   
+☐      14. Non_Collateral_Loan           -        CRU   own   
+☐      15. Loan_Account                  -        CRU   own   (+close/open account)
+☐      16. Insurance                     -        CRU   own   
+☐      17. Asset_Insurance               -        CRU   own   
+☐      18. Loan_Protection_Insurance     -        CRU   own   
+☐      19. Term_Life_Insurance           -        CRU   own   
+☐      20. Medical_Insurance             -        CRU   own   
+☐      21. Transaction_Details           -        CRU   own   (+R Some)
+☐      22. Passbook                      -        CRU   own
+☐      23. UPI                           -        CRU   own   (+R Some)
+☐      24. UPI_Transactions              -        CRU   own   (+R Some)
+☐      25. Bill_Payment                  -        CRU   own
+☐      26. Card_Transactions             -        CRU   own   (+R Some)
+☐      27. Auto_Payment                  -        CRU   own   (+R Some)
+☐      28. Auto_Payment_Loan             -        CRU   own   (+R Some)
+☐      29. Auto_Bill_Payment             -        CRU   own   (+R Some)
+☐      30. User_Credentials              -        RU    own
+☐      31. Fixed_Deposit                 -        CRU   own   (+R Some)
+☐      32. Recurring_Deposit             -        CRU   own   (+R Some)
+☐      33. Chequebook                    -        CR    own
+☐      34. Bank_Statement                -        R     own   (+R Some)
+☐      35. OTPs                          -        CR    own   (+D All)
+☐      36. Installment                   -        CRU   own   (+R Some)
+☐      37. Closed_Account                -        CRD   own
+☐      38. Blocked_Card                  -        CRD   own
+
+☐ [Business Customer]
+☐      01. Bank_Account                  -        RU    own   (+close/open account)
+☐      02. Customer_Phone_Number         -        CRD   own   (+R Some)
+☐      03. Current_Account               -        CRU   own   (+close/open account)
+☐      04. Card                          -        CRU   own   (+block/unblock card)
+☐      05. Debit_Card                    -        CRU   own   (+block/unblock card)
+☐      06. ATM_Card                      -        CRU   own   (+block/unblock card)
+☐      07. Credit_Card                   -        CRU   own   (+block/unblock card)
+☐      08. Account_Linked_Credit_Card    -        CRU   own   (+block/unblock card)
+☐      09. Loan                          -        CRU   own   
+☐      10. Collateral_Loan               -        CRU   own   
+☐      11. Non_Collateral_Loan           -        CRU   own   
+☐      12. Loan_Account                  -        CRU   own   (+close/open account)
+☐      13. Insurance                     -        CRU   own   
+☐      14. Asset_Insurance               -        CRU   own   
+☐      15. Loan_Protection_Insurance     -        CRU   own  
+☐      16. Transaction_Details           -        CRU   own   (+R Some)
+☐      17. Passbook                      -        CRU   own
+☐      18. UPI                           -        CRU   own   (+R Some)
+☐      19. UPI_Transactions              -        CRU   own   (+R Some)
+☐      20. Bill_Payment                  -        CRU   own
+☐      21. Card_Transactions             -        CRU   own   (+R Some)
+☐      22. Auto_Payment                  -        CRU   own   (+R Some)
+☐      23. Auto_Payment_Loan             -        CRU   own   (+R Some)
+☐      24. Auto_Bill_Payment             -        CRU   own   (+R Some)
+☐      25. User_Credentials              -        RU    own
+☐      26. Chequebook                    -        CR    own
+☐      27. Bank_Statement                -        R     own   (+R Some)
+☐      28. OTPs                          -        CR    own   (+D All)
+☐      29. Installment                   -        CRU   own   (+R Some)
+☐      30. Closed_Account                -        CRD   own
+☐      31. Blocked_Card                  -        CRD   own
