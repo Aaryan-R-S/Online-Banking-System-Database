@@ -185,3 +185,5 @@
 ☐      29. Installment                   -        CRU   own   (+R Some)
 ☐      30. Closed_Account                -        CRD   own
 ☐      31. Blocked_Card                  -        CRD   own
+
+☐ Complex queries, views, indices, grants, users, etc. refer rubric
