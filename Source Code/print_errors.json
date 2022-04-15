@@ -1,5 +1,0 @@
-{
-    "not_connected_to_db": "[Error] Not able to connect to Database.",
-    "invalid_op_type": "[Error] Invalid query. op_type should be c, r, u or d.",
-    "missing_op_type": "[Error] Invalid query. op_type is missing in query object."
-}
