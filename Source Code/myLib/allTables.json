@@ -1,346 +1,373 @@
 {
-    "account_linked_creditcard": {
-        "card_number": "GET card_number",
-        "linked_account": "GET linked_account"
+    "branch":{
+        "ifsc_code": "IFSC Code (6 digits): ",
+        "branch_name": "Branch Name: ",
+        "branch_account_number": "Branch Account Number (11 digits): ",
+        "street": "Street Address: ",
+        "city_village_town": "City/Village/Town: ",
+        "district": "District: ",
+        "state": "State: ",
+        "pincode": "Pincode (6 digits): ",
+        "opening_date": "Opening Date (YYYY-MM-DD): "
     },
-    "ad_channel": {
-        "channel_id": "GET channel_id",
-        "channel_name": "GET channel_name",
-        "channel_link": "GET channel_link"
+
+    "bank_account":{
+        "account_number": "Account Number (11 digits): ",
+        "date_of_opening": "Date of Opening (YYYY-MM-DD): ",
+        "min_balance_required": "Minimum balance required: ",
+        "account_balance": "Account balance: ",
+        "ifsc_code": "IFSC Code (6 digits): ",
+        "interest_rate": "Interest Rate: ",
+        "withdrawal_limit": "Withdrawal Limit: "
     },
-    "advertisement": {
-        "advertisemnt_id": "GET advertisemnt_id",
-        "total_cost": "GET total_cost",
-        "ad_type": "GET ad_type",
-        "channel_id": "GET channel_id",
-        "authorized_by": "GET authorized_by"
+
+    "department":{
+        "department_id": "Department Id (1 to 7): ",
+        "department_name": "Department Name: "
     },
-    "asset_insurance": {
-        "policy_id": "GET policy_id",
-        "asset_document": "GET asset_document",
-        "asset_value": "GET asset_value"
+
+    "employee":{
+        "employee_id": "Employee ID (5 Digits): ",
+        "pan_number": "Pan Number (10 Digits): ",
+        "aadhaar_number": "Aadhaar Number (12 Digits): ",
+        "first_name": "First Name: ",
+        "last_name": "Last Name: ",
+        "employee_account_number": "Employee Account Number (11 Digits): ",
+        "department": "Department ID (1 to 7): ",
+        "apartment": "Apartment: ",
+        "street": "Street: ",
+        "city_village_town": "City/Village/Town: ",
+        "district": "District: ",
+        "state": "State: ",
+        "pincode": "Pincode (6 Digits): ",
+        "dob": "Date of Birth (YYYY-MM-DD): ",
+        "age": "Age (18 or Above) :",
+        "employee_phone_number": "Employee Phone Number (10 Digits): ",
+        "ifsc_code": "IFSC Code (6 Digits): ",
+        "photo": "Photo: "
     },
-    "atm_card": {
-        "card_number": "GET card_number",
-        "linked_account": "GET linked_account",
-        "cash_withdrawl_limit": "GET cash_withdrawl_limit"
+
+    "branch_managed_by":{
+        "ifsc_code": "IFSC Code (6 Digits): ",
+        "employee_id": "Employee ID (5 digits): ",
+        "manages_from": "Manages From (YYYY-MM-DD): ",
+        "manages_till": "Manages Till (YYYY-MM-DD): "
     },
-    "auto_bill_payment": {
-        "auto_payment_id": "GET auto_payment_id",
-        "bill_id": "GET bill_id"
+
+    "customer":{
+	    "cin": "Customer ID (9 Digits): ",
+        "pan_number": "Pan Number (10 Digits): ",
+        "first_name": "First Name: ",
+        "last_name": "Last Name: ",
+        "Building": "Building: ",
+        "street": "Street: ",
+        "city_village_town": "City/Village/Town: ",
+        "district": "District: ",
+        "state": "State: ",
+        "pincode": "Pincode (6 Digits): "
     },
-    "auto_payment": {
-        "auto_payment_id": "GET auto_payment_id",
-        "payment_date": "GET payment_date",
-        "payment_frequency": "GET payment_frequency",
-        "autodebit_account_number": "GET autodebit_account_number"
+
+    "customer_phone_number":{
+        "cin": "Customer ID (9 Digits): ",
+        "phone_number": "Phone Number (10 Digits): "
     },
-    "auto_payment_loan": {
-        "auto_payment_id": "GET auto_payment_id",
-        "linked_loan_account": "GET linked_loan_account"
+
+    "collateral":{
+	    "collateral_id": "Collateral ID (5 Digits): ",
+        "collateral_name": "Collateral Name: ",
+        "collateral_value": "Collateral Value: ",
+        "collateral_owner": "Collateral Owner ID (9 Digits): "
     },
-    "bank_account": {
-        "account_number": "GET account_number",
-        "date_of_opening": "GET date_of_opening",
-        "min_balance_required": "GET min_balance_required",
-        "account_balance": "GET account_balance",
-        "ifsc_code": "GET ifsc_code",
-        "interest_rate": "GET interest_rate",
-        "withdrawal_limit": "GET withdrawal_limit"
+
+    "documents_link":{
+        "document_id": "Document ID (5 Digits): ",
+        "collateral_id": "Collateral ID (5 Digits): ",
+        "document_link": "Document Link: "    
     },
-    "bank_statement": {
-        "account_number": "GET account_number",
-        "date_issued": "GET date_issued",
-        "info_from_date": "GET info_from_date",
-        "info_till_date": "GET info_till_date"
+
+    "personal_customer":{
+        "cin": "Customer ID (9 Digits): ",
+        "aadhaar_number": "Aadhaar Number (12 Digits): ",
+        "dob": "Date of Birth (YYYY-MM-DD): ",
+        "age": "Age (18 or Above) :",
+        "photo": "Photo: "
     },
-    "bill_payment": {
-        "bill_id": "GET bill_id",
-        "transaction_id": "GET transaction_id"
+
+    "business_customer":{
+        "cin": "Customer ID (9 Digits): ",
+        "gst": "GST Number (15 Digits): ",
+        "business_name": "Business Name: ",
+        "business_logo": "Business Logo: "
     },
-    "branch": {
-        "ifsc_code": "GET ifsc_code",
-        "branch_name": "GET branch_name",
-        "branch_account_number": "GET branch_account_number",
-        "street": "GET street",
-        "city_village_town": "GET city_village_town",
-        "district": "GET district",
-        "state": "GET state",
-        "pincode": "GET pincode",
-        "opening_date": "GET opening_date"
+
+    "savings_account":{
+	    "account_number" : "Account Number (11 digits): ",
+        "cin": "Customer ID (9 Digits): "
     },
-    "branch_managed_by": {
-        "ifsc_code": "GET ifsc_code",
-        "employee_id": "GET employee_id",
-        "manages_from": "GET manages_from",
-        "manages_till": "GET manages_till"
+
+    "current_account":{
+        "account_number": "Account Number (11 digits): ",
+        "cin": "Customer ID (9 Digits): ",
+        "maintance_charges": "Mantainence Charges: "
     },
-    "business_customer": {
-        "gst": "GET gst",
-        "cin": "GET cin",
-        "business_name": "GET business_name",
-        "business_logo": "GET business_logo"
+
+    "minor_account":{
+        "account_number": "Account Number (11 digits): ",
+        "minor_first_name": "Minor First Name: ",
+        "minor_last_name": "Minor Last Name: ",
+        "parent_cin": "Parent's Customer ID (9 Digits): ",
+        "parent_account_number": "Parent's Account Number (11 Digits): "
     },
-    "card": {
-        "card_number": "GET card_number",
-        "linked_mobile_number": "GET linked_mobile_number",
-        "card_pin": "GET card_pin",
-        "issued_date": "GET issued_date",
-        "expiry_date": "GET expiry_date",
-        "cvv": "GET cvv",
-        "daily_limit": "GET daily_limit",
-        "monthly_limit": "GET monthly_limit"
+
+    "zero_balance_account":{
+        "account_number": "Account Number (11 digits): ",
+        "cin": "Customer ID (9 Digits): "
     },
-    "card_transactions": {
-        "transaction_id": "GET transaction_id",
-        "from_card_number": "GET from_card_number",
-        "to_card_number": "GET to_card_number",
-        "transaction_date_time": "GET transaction_date_time",
-        "transaction_status": "GET transaction_status",
-        "transaction_amount": "GET transaction_amount"
+
+    "card":{
+        "card_number": "Card Number (12 Digits): ",
+        "linked_mobile_number": "Mobile Number (10 Digits): ",
+        "card_pin": "Card PIN (4 Digits): ",
+        "issued_date": "Card Issued Date (YYYY-MM-DD): ",
+        "expiry_date": "Card Expiry Date (YYYY-MM-DD): ",
+        "cvv": "CVV (3 Digits): ",
+        "daily_limit": "Daily Transaction Limit :",
+        "monthly_limit": "Monthly Transaction Limit :"
     },
-    "chequebook": {
-        "account_number": "GET account_number",
-        "micr_code": "GET micr_code",
-        "date_issued": "GET date_issued",
-        "starting_cheque_number": "GET starting_cheque_number",
-        "pages": "GET pages"
+
+    "debit_card":{
+        "card_number": "Card Number (12 Digits): ",
+        "linked_account": "Linked Account Number (11 Digits): "
     },
-    "collateral": {
-        "collateral_id": "GET collateral_id",
-        "collateral_name": "GET collateral_name",
-        "collateral_value": "GET collateral_value",
-        "collateral_owner": "GET collateral_owner"
+
+    "prepaid_card":{
+        "card_number": "Card Number (12 Digits): ",
+        "cin": "Customer ID (9 Digits): ",
+        "prepaid_balance": "Balance Amount: "
     },
-    "collateral_loan": {
-        "loan_id": "GET loan_id",
-        "collateral_id": "GET collateral_id",
-        "loan_type": "GET loan_type"
+
+    "atm_card":{
+	    "card_number": "Card Number (12 Digits): ",
+	    "linked_account": "Linked Account Number (11 Digits): ",
+        "cash_withdrawl_limit": "Cash Withdrawal Limit: " 
     },
-    "credit_card": {
-        "card_number": "GET card_number",
-        "cin": "GET cin",
-        "billing_date": "GET billing_date",
-        "due_date": "GET due_date",
-        "credit_limit": "GET credit_limit",
-        "total_amount_due": "GET total_amount_due",
-        "rewards_point": "GET rewards_point",
-        "minimum_amount_due": "GET minimum_amount_due"
+
+    "credit_card":{
+	    "card_number": "Card Number (12 Digits): ",
+        "cin": "Customer ID (9 Digits): ",
+        "billing_date": "Billing Date (YYYY-MM-DD): ",
+        "due_date": "Due Date (YYYY-MM-DD): ",
+        "credit_limit": "Credit card limit: ",
+        "total_amount_due": "Total amount due: ",
+        "rewards_point": "Rewards point: ",
+        "minimum_amount_due": "Minumum due amount: "
     },
-    "current_account": {
-        "account_number": "GET account_number",
-        "cin": "GET cin",
-        "maintance_charges": "GET maintance_charges"
+
+    "account_linked_creditcard":{
+        "card_number": "Card Number (12 Digits): ",
+        "linked_account": "Linked Account Number (11 Digits): "  
     },
-    "customer": {
-        "cin": "GET cin",
-        "pan_number": "GET pan_number",
-        "first_name": "GET first_name",
-        "last_name": "GET last_name",
-        "building": "GET building",
-        "street": "GET street",
-        "city_village_town": "GET city_village_town",
-        "district": "GET district",
-        "state": "GET state",
-        "pincode": "GET pincode"
+
+    "loan":{
+	    "loan_id": "Loan ID (5 Digits): ",
+        "loan_amount": "Loan Amount: ",
+        "interest_rate": "Interest Rate: ",
+        "tenure_months": "Tenure (in months): ",
+        "loan_issued_date": "Loan Issued Date (YYYY-MM-DD): ",
+        "loan_end_date": "Loan End Date (YYYY-MM-DD): ",
+        "loan_given_to": "Reciever Customer ID (9 Digits): ",
+        "emi_amount": "EMI Amount: "    
     },
-    "customer_phone_number": {
-        "cin": "GET cin",
-        "phone_number": "GET phone_number"
+
+    "collateral_loan":{
+        "loan_id": "Loan ID (5 Digits): ",
+        "collateral_id": "Collateral ID (5 Digits): ", 
+        "loan_type": "Loan Type (Vehicle/Home/Mortgage): "
     },
-    "debit_card": {
-        "card_number": "GET card_number",
-        "linked_account": "GET linked_account"
+
+    "non_collateral_loan":{
+        "loan_id": "Loan ID (5 Digits): ",
+        "loan_type": "Loan Type (Personal/Educational/Business/Rural Development): "
     },
-    "department": {
-        "department_id": "GET department_id",
-        "department_name": "GET department_name"
+
+    "documents_pdf":{
+        "document_id": "Document ID (5 Digits): ",
+        "loan_id": "Loan ID (5 Digits): ",
+        "document_pdf": "PDF Document Link: "
     },
-    "documents_link": {
-        "document_id": "GET document_id",
-        "collateral_id": "GET collateral_id",
-        "document_link": "GET document_link"
+
+    "loan_account":{
+        "loan_id": "Loan ID (5 Digits): ",
+        "account_number": "Account Number (11 digits): "
     },
-    "documents_pdf": {
-        "document_id": "GET document_id",
-        "loan_id": "GET loan_id",
-        "document_pdf": "GET document_pdf"
+
+    "insurance":{
+        "policy_id": "Insurance Policy ID (6 Digits): ",
+        "policy_start_date": "Polocy start date (YYYY-MM-DD): ",
+        "policy_duration_years": "Policy duration (in yrs): ",
+        "policy_expiry_date": "Policy expiry date (YYYY-MM-DD): ",
+        "premium_amount": "Premium Amount: ",
+        "sum_insured": "Sum Insured: ",
+        "unclaimed_amount": "Unclaimed Amount: ",
+        "nominee_id": "Nominee Customer ID (9 Digits): "
     },
-    "employee": {
-        "employee_id": "GET employee_id",
-        "pan_number": "GET pan_number",
-        "aadhaar_number": "GET aadhaar_number",
-        "first_name": "GET first_name",
-        "last_name": "GET last_name",
-        "employee_account_number": "GET employee_account_number",
-        "department": "GET department",
-        "apartment": "GET apartment",
-        "street": "GET street",
-        "city_village_town": "GET city_village_town",
-        "district": "GET district",
-        "state": "GET state",
-        "pincode": "GET pincode",
-        "dob": "GET dob",
-        "age": "GET age",
-        "employee_phone_number": "GET employee_phone_number",
-        "ifsc_code": "GET ifsc_code",
-        "photo": "GET photo"
+
+    "asset_insurance":{
+        "policy_id": "Insurance Policy ID (6 Digits): ",
+        "asset_document": "Asset Document (Blob): ",
+        "asset_value": "Asset Value: "
     },
-    "employee_credential": {
-        "employee_login_id": "GET employee_login_id",
-        "employee_login_password": "GET employee_login_password",
-        "employee_id": "GET employee_id"
+
+    "loan_protection_insurance":{
+        "policy_id": "Insurance Policy ID (6 Digits): ",
+        "loan_id": "Loan ID (5 Digits): "
     },
-    "fixed_deposit": {
-        "account_number": "GET account_number",
-        "cin": "GET cin",
-        "start_date": "GET start_date",
-        "duration_years": "GET duration_years",
-        "maturity_date": "GET maturity_date",
-        "fixed_amount": "GET fixed_amount",
-        "interest_rate": "GET interest_rate"
+
+    "term_life_insurance":{
+        "policy_id": "Insurance Policy ID (6 Digits): ",
+        "insured_person": "Insured Personal Customer ID (9 Digits): "
     },
-    "installment": {
-        "loan_id": "GET loan_id",
-        "transaction_date_time": "GET transaction_date_time",
-        "transaction_status": "GET transaction_status",
-        "transaction_amount": "GET transaction_amount",
-        "transaction_type": "GET transaction_type"
+
+    "medical_insurance":{
+        "policy_id": "Insurance Policy ID (6 Digits): ",
+        "insured_person": "Insured Personal Customer ID (9 Digits): "
     },
-    "insurance": {
-        "policy_id": "GET policy_id",
-        "policy_start_date": "GET policy_start_date",
-        "policy_duration_years": "GET policy_duration_years",
-        "policy_expiry_date": "GET policy_expiry_date",
-        "premium_amount": "GET premium_amount",
-        "sum_insured": "GET sum_insured",
-        "unclaimed_amount": "GET unclaimed_amount",
-        "nominee_id": "GET nominee_id"
+
+    "transaction_details":{
+        "transaction_id": "Transaction ID (8 Digits): ",
+        "from_account_number": "Sender Account Number (11 Digits): ",
+        "to_account_number": "Reciever Account Number (11 Digits): ",
+        "transaction_date_time": "Transaction DateTime (YYYY-MM-DD HH:MM:SS): ",
+        "transaction_status": "Transaction status (success/failed): ",
+        "transaction_amount": "Transaction amount: ",
+        "transaction_type": "Transaction type (NEFT/RTGS/IMPS): "    
     },
-    "jalandharcustomer": {
-        "cin": "GET cin",
-        "pan_number": "GET pan_number",
-        "first_name": "GET first_name",
-        "last_name": "GET last_name",
-        "building": "GET building",
-        "street": "GET street",
-        "city_village_town": "GET city_village_town",
-        "district": "GET district",
-        "state": "GET state",
-        "pincode": "GET pincode"
+
+    "passbook":{
+        "barcode": "Barcode (6 Digits): ",
+        "passbook_account_number": "Account Number (11 Digits): ",
+        "date_issued": "Issued Date (YYYY-MM-DD): ",
+        "date_last_printed": "Last Printed Date (YYYY-MM-DD): "
     },
-    "loan": {
-        "loan_id": "GET loan_id",
-        "loan_amount": "GET loan_amount",
-        "interest_rate": "GET interest_rate",
-        "tenure_months": "GET tenure_months",
-        "loan_issued_date": "GET loan_issued_date",
-        "loan_end_date": "GET loan_end_date",
-        "loan_given_to": "GET loan_given_to",
-        "emi_amount": "GET emi_amount"
+
+    "upi":{
+        "upi_id": "UPI ID (abc@bank - Max 15 char): ",
+        "account_number_linked": "Linked Account Number (11 Digits): ",
+        "active_status": "Active status (0/1): ",
+        "last_used": "Last used date(YYYY-MM-DD): ",
+        "transaction_limit_remaining": "Remaining transaction limit: "
     },
-    "loan_account": {
-        "account_number": "GET account_number",
-        "loan_id": "GET loan_id"
+
+    "upi_transactions":{
+        "upi_transaction_id": "UPI Transaction ID (8 Digits): ",
+        "from_upi_id": "Sender UPI ID (abc@bank - Max 15 char): ",
+        "to_upi_id": "Reciever UPI ID (abc@bank - Max 15 char): ",
+        "transaction_date_time": "Transaction DateTime (YYYY-MM-DD HH:MM:SS): ",
+        "transaction_status": "Transaction status (success/failed): ",
+        "transaction_amount": "Transaction amount: "
     },
-    "loan_protection_insurance": {
-        "policy_id": "GET policy_id",
-        "loan_id": "GET loan_id"
+
+    "bill_payment":{
+        "bill_id": "Bill ID (10 Digits): ",
+        "transaction_id": "Transaction ID (8 Digits): "
     },
-    "medical_insurance": {
-        "policy_id": "GET policy_id",
-        "insured_person": "GET insured_person"
+
+    "card_transactions":{
+        "transaction_id": "Transaction ID (8 Digits): ",
+        "from_card_number": "Sender Card Number (12 Digits): ",
+        "to_card_number": "Reciever Card Number (12 Digits): ",
+        "transaction_date_time": "Transaction DateTime (YYYY-MM-DD HH:MM:SS): ",
+        "transaction_status": "Transaction status (success/failed): ",
+        "transaction_amount": "Transaction amount: "
     },
-    "minor_account": {
-        "minor_first_name": "GET minor_first_name",
-        "minor_last_name": "GET minor_last_name",
-        "account_number": "GET account_number",
-        "parent_cin": "GET parent_cin",
-        "parent_account_number": "GET parent_account_number"
+
+    "auto_payment":{
+        "auto_payment_id": "Auto Payment ID (6 Digits): ",
+        "payment_date": "Payement Date (YYYY-MM-DD): ",
+        "payment_frequency": "Payment frequency: ",
+        "autodebit_account_number": "Autodebit account number (11 Digits): "
     },
-    "non_collateral_loan": {
-        "loan_id": "GET loan_id",
-        "loan_type": "GET loan_type"
+
+    "auto_payment_loan":{
+        "auto_payment_id": "Auto Payment ID (6 Digits): ", 
+        "linked_loan_account": "Linked Account Number (11 Digits): "
     },
-    "otps": {
-        "account_number": "GET account_number",
-        "cin": "GET cin",
-        "valid_from": "GET valid_from",
-        "valid_till": "GET valid_till",
-        "otp": "GET otp"
+
+    "auto_bill_payment":{
+        "auto_payment_id": "Auto Payment ID (6 Digits): ",
+        "bill_id": "Bill ID (10 Digits): "
     },
-    "passbook": {
-        "barcode": "GET barcode",
-        "passbook_account_number": "GET passbook_account_number",
-        "date_issued": "GET date_issued",
-        "date_last_printed": "GET date_last_printed"
+
+    "transaction_log":{
+        "log_id": "Transaction Log ID (8 Digits): ",
+        "log_date_time datetime": "Transaction Log DateTime (YYYY-MM-DD HH:MM:SS): ",
+        "transaction_id": "Transaction ID (8 Digits): ",
+        "log_file": "Transaction Log file (Blob): "
+    },    
+
+    "ad_channel":{
+        "channel_id": "Channel ID (3 Digits): ",
+        "channel_name": "Channel Name: ",
+        "channel_link": "Channel Link: "
     },
-    "personal_customer": {
-        "cin": "GET cin",
-        "aadhaar_number": "GET aadhaar_number",
-        "dob": "GET dob",
-        "age": "GET age",
-        "photo": "GET photo"
+
+    "advertisement":{
+        "advertisemnt_id": "Advertisemnt ID (4 Digits): ",
+        "total_cost": "Total cost: ",
+        "ad_type": "Ad type (social-media/offline/on-site/other-online): ",
+        "channel_id": "Channel ID (3 Digits): ",
+        "authorized_by": "Authorizer Employee ID (5 Digits): "
     },
-    "prepaid_card": {
-        "card_number": "GET card_number",
-        "cin": "GET cin",
-        "prepaid_balance": "GET prepaid_balance"
+
+    "user_credential":{
+        "user_login_id": "User login ID (9 Digits): ",
+        "user_login_password": "User login Password: ",
+        "user_id": "User Customer ID (9 Digits): "
     },
-    "recurring_deposit": {
-        "account_number": "GET account_number",
-        "cin": "GET cin",
-        "start_date": "GET start_date",
-        "duration_years": "GET duration_years",
-        "maturity_date": "GET maturity_date",
-        "monthly_deposit_amount": "GET monthly_deposit_amount",
-        "interest_rate": "GET interest_rate"
+
+    "employee_credential":{
+        "employee_login_id": "Employee login ID (9 Digits): ",
+        "employee_login_password": "Employee Login Password: ",
+        "employee_id": "Employee ID (5 Digits): "
     },
-    "savings_account": {
-        "account_number": "GET account_number",
-        "cin": "GET cin"
+
+    "closed_account":{
+        "account_number": "Account Number (11 digits): ",
+        "date_of_closing": "Closing date (YYYY-MM-DD): "
     },
-    "term_life_insurance": {
-        "policy_id": "GET policy_id",
-        "insured_person": "GET insured_person"
+
+    "blocked_card":{
+        "card_number": "Card Number (12 Digits): ",
+        "date_of_blocking": "Blocking date (YYYY-MM-DD): "
     },
-    "transaction_details": {
-        "transaction_id": "GET transaction_id",
-        "from_account_number": "GET from_account_number",
-        "to_account_number": "GET to_account_number",
-        "transaction_date_time": "GET transaction_date_time",
-        "transaction_status": "GET transaction_status",
-        "transaction_amount": "GET transaction_amount",
-        "transaction_type": "GET transaction_type"
-    },
-    "transaction_log": {
-        "log_id": "GET log_id",
-        "log_date_time": "GET log_date_time",
-        "transaction_id": "GET transaction_id",
-        "log_file": "GET log_file"
-    },
-    "upi": {
-        "upi_id": "GET upi_id",
-        "account_number_linked": "GET account_number_linked",
-        "active_status": "GET active_status",
-        "last_used": "GET last_used",
-        "transaction_limit_remaining": "GET transaction_limit_remaining"
-    },
-    "upi_transactions": {
-        "upi_transaction_id": "GET upi_transaction_id",
-        "from_upi_id": "GET from_upi_id",
-        "to_upi_id": "GET to_upi_id",
-        "transaction_date_time": "GET transaction_date_time",
-        "transaction_status": "GET transaction_status",
-        "transaction_amount": "GET transaction_amount"
-    },
-    "user_credential": {
-        "user_login_id": "GET user_login_id",
-        "user_login_password": "GET user_login_password",
-        "user_id": "GET user_id"
-    },
-    "zero_balance_account": {
-        "account_number": "GET account_number",
-        "cin": "GET cin"
+
+    "fixed_deposit":{
+        "account_number": "Account Number (11 digits): ",
+        "cin": "Customer ID (9 Digits): ",
+        "start_date": "Start date (YYYY-MM-DD): ",
+        "duration_years": "Duration (in yrs): ",
+        "maturity_date": "Maturity date (YYYY-MM-DD): ",
+        "fixed_amount": "Fixed Deposit Amount: ",
+        "interest_rate": "Interest Rate: "
     }
+
 }
+
+// 1. business customer 
+// 2. Minor account
+// 3. Loan Account
+
+// Document link csv has error
+// Prepaid card csv also
+// Advertisemnt me employee ID glt hai data me and sql samll int ?
+
+// Blob ?? GST(B.Cust) ?? reward points limit ?? Float values ka alag se kuch ?? time 24hr format ??
+
+// New department add ho skta h ? ya 1 to 7 is fine
+
+// Default 0 wali cheez ko kuch use krenge ?
+
+// Cust phone number me 2 primary key to koi bhi pehele baad me chalegi na ? 
+
+// Pan number of minor
+// Cards number 12 digit h to sql me 16 kyu ?
