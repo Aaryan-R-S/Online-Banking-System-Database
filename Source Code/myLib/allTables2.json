@@ -1,0 +1,13 @@
+{
+    "branch":{
+        "ifsc_code": "IFSC Code (6 digits): ",
+        "branch_name": "Branch Name: ",
+        "branch_account_number": "Branch Account Number (11 digits): ",
+        "street": "Street Address: ",
+        "city_village_town": "City/Village/Town: ",
+        "district": "District: ",
+        "state": "State: ",
+        "pincode": "Pincode (6 digits): ",
+        "opening_date": "Opening Date (YYYY-MM-DD): "
+    }
+}

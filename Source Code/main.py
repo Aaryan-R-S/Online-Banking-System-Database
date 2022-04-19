@@ -25,3 +25,23 @@ currTable = lis[0][1]
 # myTable.readAll(currTableName)
 # myTable.truncateAll(currTableName)
 
+
+# CREATING ALL TABLES JSON FROM CODE
+# myConnection.cur = myConnection.con.cursor()
+# final_d={}
+# myConnection.cur.execute('''SHOW TABLES FROM online_banking_system''')
+# all_table_name=myConnection.cur.fetchall()
+# for tables in all_table_name:
+#     name=tables[0]
+#     print(name)
+#     d={}
+#     myConnection.cur.execute('''SHOW COLUMNS FROM {}'''.format(name))
+#     columns=myConnection.cur.fetchall()
+#     for col in columns:
+#         d[col[0]]="GET "+col[0]
+#     final_d[name]=d
+# print(len(all_table_name))
+
+
+# with open("data.json", "w") as write_file:
+#     json.dump(final_d, write_file)

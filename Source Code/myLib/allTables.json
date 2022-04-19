@@ -1,13 +1,346 @@
 {
-    "branch":{
-        "ifsc_code": "IFSC Code (6 digits): ",
-        "branch_name": "Branch Name: ",
-        "branch_account_number": "Branch Account Number (11 digits): ",
-        "street": "Street Address: ",
-        "city_village_town": "City/Village/Town: ",
-        "district": "District: ",
-        "state": "State: ",
-        "pincode": "Pincode (6 digits): ",
-        "opening_date": "Opening Date (YYYY-MM-DD): "
+    "account_linked_creditcard": {
+        "card_number": "GET card_number",
+        "linked_account": "GET linked_account"
+    },
+    "ad_channel": {
+        "channel_id": "GET channel_id",
+        "channel_name": "GET channel_name",
+        "channel_link": "GET channel_link"
+    },
+    "advertisement": {
+        "advertisemnt_id": "GET advertisemnt_id",
+        "total_cost": "GET total_cost",
+        "ad_type": "GET ad_type",
+        "channel_id": "GET channel_id",
+        "authorized_by": "GET authorized_by"
+    },
+    "asset_insurance": {
+        "policy_id": "GET policy_id",
+        "asset_document": "GET asset_document",
+        "asset_value": "GET asset_value"
+    },
+    "atm_card": {
+        "card_number": "GET card_number",
+        "linked_account": "GET linked_account",
+        "cash_withdrawl_limit": "GET cash_withdrawl_limit"
+    },
+    "auto_bill_payment": {
+        "auto_payment_id": "GET auto_payment_id",
+        "bill_id": "GET bill_id"
+    },
+    "auto_payment": {
+        "auto_payment_id": "GET auto_payment_id",
+        "payment_date": "GET payment_date",
+        "payment_frequency": "GET payment_frequency",
+        "autodebit_account_number": "GET autodebit_account_number"
+    },
+    "auto_payment_loan": {
+        "auto_payment_id": "GET auto_payment_id",
+        "linked_loan_account": "GET linked_loan_account"
+    },
+    "bank_account": {
+        "account_number": "GET account_number",
+        "date_of_opening": "GET date_of_opening",
+        "min_balance_required": "GET min_balance_required",
+        "account_balance": "GET account_balance",
+        "ifsc_code": "GET ifsc_code",
+        "interest_rate": "GET interest_rate",
+        "withdrawal_limit": "GET withdrawal_limit"
+    },
+    "bank_statement": {
+        "account_number": "GET account_number",
+        "date_issued": "GET date_issued",
+        "info_from_date": "GET info_from_date",
+        "info_till_date": "GET info_till_date"
+    },
+    "bill_payment": {
+        "bill_id": "GET bill_id",
+        "transaction_id": "GET transaction_id"
+    },
+    "branch": {
+        "ifsc_code": "GET ifsc_code",
+        "branch_name": "GET branch_name",
+        "branch_account_number": "GET branch_account_number",
+        "street": "GET street",
+        "city_village_town": "GET city_village_town",
+        "district": "GET district",
+        "state": "GET state",
+        "pincode": "GET pincode",
+        "opening_date": "GET opening_date"
+    },
+    "branch_managed_by": {
+        "ifsc_code": "GET ifsc_code",
+        "employee_id": "GET employee_id",
+        "manages_from": "GET manages_from",
+        "manages_till": "GET manages_till"
+    },
+    "business_customer": {
+        "gst": "GET gst",
+        "cin": "GET cin",
+        "business_name": "GET business_name",
+        "business_logo": "GET business_logo"
+    },
+    "card": {
+        "card_number": "GET card_number",
+        "linked_mobile_number": "GET linked_mobile_number",
+        "card_pin": "GET card_pin",
+        "issued_date": "GET issued_date",
+        "expiry_date": "GET expiry_date",
+        "cvv": "GET cvv",
+        "daily_limit": "GET daily_limit",
+        "monthly_limit": "GET monthly_limit"
+    },
+    "card_transactions": {
+        "transaction_id": "GET transaction_id",
+        "from_card_number": "GET from_card_number",
+        "to_card_number": "GET to_card_number",
+        "transaction_date_time": "GET transaction_date_time",
+        "transaction_status": "GET transaction_status",
+        "transaction_amount": "GET transaction_amount"
+    },
+    "chequebook": {
+        "account_number": "GET account_number",
+        "micr_code": "GET micr_code",
+        "date_issued": "GET date_issued",
+        "starting_cheque_number": "GET starting_cheque_number",
+        "pages": "GET pages"
+    },
+    "collateral": {
+        "collateral_id": "GET collateral_id",
+        "collateral_name": "GET collateral_name",
+        "collateral_value": "GET collateral_value",
+        "collateral_owner": "GET collateral_owner"
+    },
+    "collateral_loan": {
+        "loan_id": "GET loan_id",
+        "collateral_id": "GET collateral_id",
+        "loan_type": "GET loan_type"
+    },
+    "credit_card": {
+        "card_number": "GET card_number",
+        "cin": "GET cin",
+        "billing_date": "GET billing_date",
+        "due_date": "GET due_date",
+        "credit_limit": "GET credit_limit",
+        "total_amount_due": "GET total_amount_due",
+        "rewards_point": "GET rewards_point",
+        "minimum_amount_due": "GET minimum_amount_due"
+    },
+    "current_account": {
+        "account_number": "GET account_number",
+        "cin": "GET cin",
+        "maintance_charges": "GET maintance_charges"
+    },
+    "customer": {
+        "cin": "GET cin",
+        "pan_number": "GET pan_number",
+        "first_name": "GET first_name",
+        "last_name": "GET last_name",
+        "building": "GET building",
+        "street": "GET street",
+        "city_village_town": "GET city_village_town",
+        "district": "GET district",
+        "state": "GET state",
+        "pincode": "GET pincode"
+    },
+    "customer_phone_number": {
+        "cin": "GET cin",
+        "phone_number": "GET phone_number"
+    },
+    "debit_card": {
+        "card_number": "GET card_number",
+        "linked_account": "GET linked_account"
+    },
+    "department": {
+        "department_id": "GET department_id",
+        "department_name": "GET department_name"
+    },
+    "documents_link": {
+        "document_id": "GET document_id",
+        "collateral_id": "GET collateral_id",
+        "document_link": "GET document_link"
+    },
+    "documents_pdf": {
+        "document_id": "GET document_id",
+        "loan_id": "GET loan_id",
+        "document_pdf": "GET document_pdf"
+    },
+    "employee": {
+        "employee_id": "GET employee_id",
+        "pan_number": "GET pan_number",
+        "aadhaar_number": "GET aadhaar_number",
+        "first_name": "GET first_name",
+        "last_name": "GET last_name",
+        "employee_account_number": "GET employee_account_number",
+        "department": "GET department",
+        "apartment": "GET apartment",
+        "street": "GET street",
+        "city_village_town": "GET city_village_town",
+        "district": "GET district",
+        "state": "GET state",
+        "pincode": "GET pincode",
+        "dob": "GET dob",
+        "age": "GET age",
+        "employee_phone_number": "GET employee_phone_number",
+        "ifsc_code": "GET ifsc_code",
+        "photo": "GET photo"
+    },
+    "employee_credential": {
+        "employee_login_id": "GET employee_login_id",
+        "employee_login_password": "GET employee_login_password",
+        "employee_id": "GET employee_id"
+    },
+    "fixed_deposit": {
+        "account_number": "GET account_number",
+        "cin": "GET cin",
+        "start_date": "GET start_date",
+        "duration_years": "GET duration_years",
+        "maturity_date": "GET maturity_date",
+        "fixed_amount": "GET fixed_amount",
+        "interest_rate": "GET interest_rate"
+    },
+    "installment": {
+        "loan_id": "GET loan_id",
+        "transaction_date_time": "GET transaction_date_time",
+        "transaction_status": "GET transaction_status",
+        "transaction_amount": "GET transaction_amount",
+        "transaction_type": "GET transaction_type"
+    },
+    "insurance": {
+        "policy_id": "GET policy_id",
+        "policy_start_date": "GET policy_start_date",
+        "policy_duration_years": "GET policy_duration_years",
+        "policy_expiry_date": "GET policy_expiry_date",
+        "premium_amount": "GET premium_amount",
+        "sum_insured": "GET sum_insured",
+        "unclaimed_amount": "GET unclaimed_amount",
+        "nominee_id": "GET nominee_id"
+    },
+    "jalandharcustomer": {
+        "cin": "GET cin",
+        "pan_number": "GET pan_number",
+        "first_name": "GET first_name",
+        "last_name": "GET last_name",
+        "building": "GET building",
+        "street": "GET street",
+        "city_village_town": "GET city_village_town",
+        "district": "GET district",
+        "state": "GET state",
+        "pincode": "GET pincode"
+    },
+    "loan": {
+        "loan_id": "GET loan_id",
+        "loan_amount": "GET loan_amount",
+        "interest_rate": "GET interest_rate",
+        "tenure_months": "GET tenure_months",
+        "loan_issued_date": "GET loan_issued_date",
+        "loan_end_date": "GET loan_end_date",
+        "loan_given_to": "GET loan_given_to",
+        "emi_amount": "GET emi_amount"
+    },
+    "loan_account": {
+        "account_number": "GET account_number",
+        "loan_id": "GET loan_id"
+    },
+    "loan_protection_insurance": {
+        "policy_id": "GET policy_id",
+        "loan_id": "GET loan_id"
+    },
+    "medical_insurance": {
+        "policy_id": "GET policy_id",
+        "insured_person": "GET insured_person"
+    },
+    "minor_account": {
+        "minor_first_name": "GET minor_first_name",
+        "minor_last_name": "GET minor_last_name",
+        "account_number": "GET account_number",
+        "parent_cin": "GET parent_cin",
+        "parent_account_number": "GET parent_account_number"
+    },
+    "non_collateral_loan": {
+        "loan_id": "GET loan_id",
+        "loan_type": "GET loan_type"
+    },
+    "otps": {
+        "account_number": "GET account_number",
+        "cin": "GET cin",
+        "valid_from": "GET valid_from",
+        "valid_till": "GET valid_till",
+        "otp": "GET otp"
+    },
+    "passbook": {
+        "barcode": "GET barcode",
+        "passbook_account_number": "GET passbook_account_number",
+        "date_issued": "GET date_issued",
+        "date_last_printed": "GET date_last_printed"
+    },
+    "personal_customer": {
+        "cin": "GET cin",
+        "aadhaar_number": "GET aadhaar_number",
+        "dob": "GET dob",
+        "age": "GET age",
+        "photo": "GET photo"
+    },
+    "prepaid_card": {
+        "card_number": "GET card_number",
+        "cin": "GET cin",
+        "prepaid_balance": "GET prepaid_balance"
+    },
+    "recurring_deposit": {
+        "account_number": "GET account_number",
+        "cin": "GET cin",
+        "start_date": "GET start_date",
+        "duration_years": "GET duration_years",
+        "maturity_date": "GET maturity_date",
+        "monthly_deposit_amount": "GET monthly_deposit_amount",
+        "interest_rate": "GET interest_rate"
+    },
+    "savings_account": {
+        "account_number": "GET account_number",
+        "cin": "GET cin"
+    },
+    "term_life_insurance": {
+        "policy_id": "GET policy_id",
+        "insured_person": "GET insured_person"
+    },
+    "transaction_details": {
+        "transaction_id": "GET transaction_id",
+        "from_account_number": "GET from_account_number",
+        "to_account_number": "GET to_account_number",
+        "transaction_date_time": "GET transaction_date_time",
+        "transaction_status": "GET transaction_status",
+        "transaction_amount": "GET transaction_amount",
+        "transaction_type": "GET transaction_type"
+    },
+    "transaction_log": {
+        "log_id": "GET log_id",
+        "log_date_time": "GET log_date_time",
+        "transaction_id": "GET transaction_id",
+        "log_file": "GET log_file"
+    },
+    "upi": {
+        "upi_id": "GET upi_id",
+        "account_number_linked": "GET account_number_linked",
+        "active_status": "GET active_status",
+        "last_used": "GET last_used",
+        "transaction_limit_remaining": "GET transaction_limit_remaining"
+    },
+    "upi_transactions": {
+        "upi_transaction_id": "GET upi_transaction_id",
+        "from_upi_id": "GET from_upi_id",
+        "to_upi_id": "GET to_upi_id",
+        "transaction_date_time": "GET transaction_date_time",
+        "transaction_status": "GET transaction_status",
+        "transaction_amount": "GET transaction_amount"
+    },
+    "user_credential": {
+        "user_login_id": "GET user_login_id",
+        "user_login_password": "GET user_login_password",
+        "user_id": "GET user_id"
+    },
+    "zero_balance_account": {
+        "account_number": "GET account_number",
+        "cin": "GET cin"
     }
 }
