@@ -19,7 +19,7 @@ currTableName = lis[0][0]
 currTable = lis[0][1]
 
 # myTable.create(currTable, currTableName)
-# myTable.read(currTable, currTableName)
+myTable.read(currTable, currTableName)
 # myTable.update(currTable, currTableName)
 # myTable.delete(currTable, currTableName)
 # myTable.readAll(currTableName)

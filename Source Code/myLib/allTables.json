@@ -349,25 +349,46 @@
         "maturity_date": "Maturity date (YYYY-MM-DD): ",
         "fixed_amount": "Fixed Deposit Amount: ",
         "interest_rate": "Interest Rate: "
+    },
+
+    "recurring_deposit":{
+	    "account_number": "Account Number (11 digits): ",
+        "cin": "Customer ID (9 Digits): ",
+        "start_date": "Start date (YYYY-MM-DD): ",
+        "duration_years": "Duration (in yrs): ",
+        "maturity_date": "Maturity date (YYYY-MM-DD): ",
+        "monthly_deposit_amount": "Monthly deposit amount: ",
+        "interest_rate": "Interest Rate: "
+    },
+
+    "chequebook":{
+        "account_number": "Account Number (11 digits): ",
+        "micr_code":  "MICR code (9 Digits): ",
+        "date_issued": "Issued Date (YYYY-MM-DD): ",
+        "starting_cheque_number": "Starting cheque number (11 Digits): ",
+        "pages": "Number of Pages: "
+    },
+
+    "bank_statement":{
+        "account_number": "Account Number (11 digits): ",
+        "date_issued": "Issued Date (YYYY-MM-DD): ",
+        "info_from_date": "Information starting date (YYYY-MM-DD): ",
+        "info_till_date": "Information till date (YYYY-MM-DD): "    
+    },
+
+    "otps":{
+        "account_number": "Account Number (11 digits): ",
+        "valid_from": "Valid from timestamp (YYYY-MM-DD HH:MM:SS): ",
+        "valid_till": "Valid till timestamp (YYYY-MM-DD HH:MM:SS): ",
+        "cin": "Customer ID (9 Digits): ",
+        "otp": "OTP (6 Digits): "
+    },
+
+    "installment":{
+        "loan_id": "Loan ID (5 Digits): ",
+        "transaction_date_time": "Transaction DateTime (YYYY-MM-DD HH:MM:SS): ",
+        "transaction_status": "Transaction status (success/failed): ",
+        "transaction_amount": "Transaction amount: ",
+        "transaction_type": "Transaction type (NEFT/RTGS/IMPS): "
     }
-
 }
-
-// 1. business customer 
-// 2. Minor account
-// 3. Loan Account
-
-// Document link csv has error
-// Prepaid card csv also
-// Advertisemnt me employee ID glt hai data me and sql samll int ?
-
-// Blob ?? GST(B.Cust) ?? reward points limit ?? Float values ka alag se kuch ?? time 24hr format ??
-
-// New department add ho skta h ? ya 1 to 7 is fine
-
-// Default 0 wali cheez ko kuch use krenge ?
-
-// Cust phone number me 2 primary key to koi bhi pehele baad me chalegi na ? 
-
-// Pan number of minor
-// Cards number 12 digit h to sql me 16 kyu ?
