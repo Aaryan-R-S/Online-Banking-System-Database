@@ -2,6 +2,7 @@ import json
 from myLib.basics import connect_to_db
 from myLib.basics import basic_functionalities as bf
 from myLib import generalized_tables as GT
+from myLib import root_user as ru
 
 myConnection = connect_to_db.DBConnector()
 myBf = bf.RunQuery(myConnection)
@@ -15,11 +16,15 @@ with open('myLib/allTables.json') as ft:
             
 myTable = GT.Gen_Table(myBf)
 lis = list(allTables.items())
-currTableName = lis[0][0]
-currTable = lis[0][1]
+
+myrootuser = ru.root_user(myTable,lis)
+myrootuser.branch_op()
+
+# currTableName = lis[0][0]
+# currTable = lis[0][1]
 
 # myTable.create(currTable, currTableName)
-myTable.read(currTable, currTableName)
+# myTable.read(currTable, currTableName)
 # myTable.update(currTable, currTableName)
 # myTable.delete(currTable, currTableName)
 # myTable.readAll(currTableName)
