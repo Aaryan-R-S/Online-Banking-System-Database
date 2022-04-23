@@ -6,9 +6,9 @@ class RunQuery:
     #     "op_type" : "c",    # OR "r", "u", "d"
     #     "data": {"f_name_1":"val_1", "f_name_2":"val_2"}, 
     #     # "c" (all fields in sorted order) 
-    #     # "r" (one field)
-    #     # "u" (first field 'where' and second field 'set')
-    #     # "d" (one field)
+    #     # "r" (primary field)
+    #     # "u" (primarty field 'where' and remaining fields 'set')
+    #     # "d" (primary field)
     # } 
     
     def __init__(self, myConnection):

@@ -34,7 +34,7 @@ CREATE TABLE `card` (
   PRIMARY KEY (`card_number`),
   CONSTRAINT `card_chk_1` CHECK (((`linked_mobile_number` >= 1000000000) and (`linked_mobile_number` <= 9999999999))),
   CONSTRAINT `card_chk_2` CHECK ((`monthly_limit` > `daily_limit`))
-) ENGINE=InnoDB AUTO_INCREMENT=1000000000000000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=100000000000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

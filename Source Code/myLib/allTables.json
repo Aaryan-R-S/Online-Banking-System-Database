@@ -22,7 +22,7 @@
     },
 
     "department":{
-        "department_id": "Department Id (1 to 7): ",
+        "department_id": "Department Id: ",
         "department_name": "Department Name: "
     },
 
@@ -95,7 +95,7 @@
 
     "business_customer":{
         "cin": "Customer ID (9 Digits): ",
-        "gst": "GST Number (15 Digits): ",
+        "gst": "GST Number: ",
         "business_name": "Business Name: ",
         "business_logo": "Business Logo: "
     },
@@ -214,7 +214,7 @@
 
     "asset_insurance":{
         "policy_id": "Insurance Policy ID (6 Digits): ",
-        "asset_document": "Asset Document (Blob): ",
+        "asset_document": "Asset Document (Blob/String): ",
         "asset_value": "Asset Value: "
     },
 
@@ -302,7 +302,7 @@
         "log_id": "Transaction Log ID (8 Digits): ",
         "log_date_time datetime": "Transaction Log DateTime (YYYY-MM-DD HH:MM:SS): ",
         "transaction_id": "Transaction ID (8 Digits): ",
-        "log_file": "Transaction Log file (Blob): "
+        "log_file": "Transaction Log file (Blob/String): "
     },    
 
     "ad_channel":{
@@ -377,10 +377,10 @@
     },
 
     "otps":{
-        "account_number": "Account Number (11 digits): ",
-        "valid_from": "Valid from timestamp (YYYY-MM-DD HH:MM:SS): ",
-        "valid_till": "Valid till timestamp (YYYY-MM-DD HH:MM:SS): ",
         "cin": "Customer ID (9 Digits): ",
+        "valid_from": "Valid from timestamp (YYYY-MM-DD HH:MM:SS): ",
+        "account_number": "Account Number (11 digits): ",
+        "valid_till": "Valid till timestamp (YYYY-MM-DD HH:MM:SS): ",
         "otp": "OTP (6 Digits): "
     },
 

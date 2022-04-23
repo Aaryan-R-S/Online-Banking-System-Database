@@ -36,7 +36,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (3,'Accountant'),(1,'Branch Manager'),(7,'Clerk'),(6,'Credit Analyst'),(5,'Internal Auditor'),(2,'Probationary Officer'),(4,'Teller');
+INSERT INTO `department` VALUES (1,'Branch Manager'),(2,'Probationary Officer'),(3,'Accountant'),(4,'Teller'),(5,'Internal Auditor'),(6,'Credit Analyst'),(7,'Clerk');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
