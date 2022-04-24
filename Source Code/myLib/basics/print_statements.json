@@ -1,4 +1,6 @@
 {
     "connected_to_db": "[Success] Connected to Database - Online_Banking_System.",
-    "query_success": "[Success] Query executed successfully."
+    "query_success": "[Success] Query executed successfully.",
+    "login_success": "[Success] You have Logged In successfully!",
+    "nothing_found": "[None] No entry found"
 }

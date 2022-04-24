@@ -203,7 +203,7 @@
 
     "insurance":{
         "policy_id": "Insurance Policy ID (6 Digits): ",
-        "policy_start_date": "Polocy start date (YYYY-MM-DD): ",
+        "policy_start_date": "Policy start date (YYYY-MM-DD): ",
         "policy_duration_years": "Policy duration (in yrs): ",
         "policy_expiry_date": "Policy expiry date (YYYY-MM-DD): ",
         "premium_amount": "Premium Amount: ",
@@ -320,15 +320,15 @@
     },
 
     "user_credential":{
+        "user_id": "User Customer ID (9 Digits): ",
         "user_login_id": "User login ID (9 Digits): ",
-        "user_login_password": "User login Password: ",
-        "user_id": "User Customer ID (9 Digits): "
+        "user_login_password": "User login Password: "
     },
 
     "employee_credential":{
+        "employee_id": "Employee ID (5 Digits): ",
         "employee_login_id": "Employee login ID (9 Digits): ",
-        "employee_login_password": "Employee Login Password: ",
-        "employee_id": "Employee ID (5 Digits): "
+        "employee_login_password": "Employee Login Password: "
     },
 
     "closed_account":{

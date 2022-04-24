@@ -5,5 +5,7 @@
     "missing_relation": "[Error] Invalid query. `relation` is missing in query object.",
     "missing_data": "[Error] Invalid query. `data` is missing in query object.",
     "invalid_query": "[Error] Invalid query. Encountered some error while executing the query.",
-    "input_mismatch_in_query": "[Error] Invalid input provided. Please follow the mentioned format for providing the input."
+    "input_mismatch_in_query": "[Error] Invalid input provided. Please follow the mentioned format for providing the input.",
+    "incorrect_login": "[Error] Incorrect Login ID or password provided. Please enter the valid credentials.",
+    "invalid_account_access": "[Error] Invalid account provided. Please follow the mentioned format for providing your account number."
 }

@@ -1,10 +1,37 @@
 import json
 
 class BusinessCustomer:
-    def __init__(self,gt,myTables):
+    def __init__(self,gt,myTables,bc_id):
         self.gt = gt
         self.myTables = myTables
-
+        self.bc_id = bc_id
+        self.bank_accounts = []
+        self.loan_ids = []
+        self.policy_ids = []
+        self.upi_ids = []
+        temp = self.gt.read_custom(self.myTables[12][1],self.myTables[12][0],"cin",self.bc_id)
+        if temp!=[]:
+            self.bank_accounts.append(temp[0][0])
+        temp = self.gt.read_custom(self.myTables[21][1],self.myTables[21][0],"loan_given_to",self.bc_id)
+        if temp!=[]:
+            for i in range(len(temp)):
+                self.loan_ids.append(temp[i][0])
+        temp = self.gt.read_custom(self.myTables[26][1],self.myTables[26][0],"nominee_id",self.bc_id)
+        if temp!=[]:
+            for i in range(len(temp)):
+                self.policy_ids.append(temp[i][0])
+        temp = []
+        for i in self.bank_accounts:
+            temp2 = self.gt.read_custom(self.myTables[33][1],self.myTables[33][0],"account_number_linked",i)
+            if temp2 != []:
+                temp+=temp2
+        if temp!=[]:
+            for i in range(len(temp)):
+                self.upi_ids.append(temp[i][0])
+        # print(self.bank_accounts)
+        # print(self.loan_ids)
+        # print(self.policy_ids)
+        # print(self.upi_ids)
         with open('myLib/basics/print_errors.json') as f:
             self.errors = json.load(f)
         with open('myLib/basics/print_statements.json') as fs:
@@ -19,7 +46,7 @@ class BusinessCustomer:
                 print(str(cnt) + ". " + all_ops[i])
                 cnt+=1
 
-    def execute_query(self,myt,mytname,req_ops,inp):
+    def execute_query(self,myt,mytname,req_ops,inp,key=None,bc_id=None):
         cnt = 1
         ind = -1 
         for i in range(len(req_ops)):
@@ -30,47 +57,43 @@ class BusinessCustomer:
                 cnt+=1
 
         if ind == 0:
-            print("[Create a new entry]")
-            self.gt.create(myt,mytname)
+            if bc_id != None:
+                self.gt.create_custom(myt,mytname,key,bc_id)
+            else:
+                print("[Create a new entry]")
+                self.gt.create(myt,mytname)
         elif ind == 1:
-            print("[Read some entries]")
-            self.gt.read(myt,mytname)
+            if bc_id != None:
+                return self.gt.read_custom(myt,mytname,key,bc_id)
+            else:
+                print("[Read some entries]")
+                return self.gt.read(myt,mytname)
         elif ind == 2:
-            print("[Update some entries]")
-            self.gt.update(myt,mytname)
+            if bc_id != None:
+                self.gt.update_custom(myt,mytname,key,bc_id)
+            else:
+                print("[Update some entries]")
+                self.gt.update(myt,mytname)
         elif ind == 3:
-            print("[Delete some entries]")
-            self.gt.delete(myt,mytname)
-        elif ind == 4:
-            print("[Read all entries]")
-            self.gt.readAll(mytname)
-        elif ind == 5:
-            print("[Delete all entries]")
-            self.gt.truncateAll(mytname)
+            if bc_id != None:
+                self.gt.delete_custom(myt,mytname,key,bc_id)
+            else:
+                print("[Delete some entries]")
+                self.gt.delete(myt,mytname)
+        # elif ind == 4:
+        #     print("[Read all entries]")
+        #     self.gt.readAll(mytname)
+        # elif ind == 5:
+        #     print("[Delete all entries]")
+        #     self.gt.truncateAll(mytname)
         else:
             print(self.errors["input_mismatch_in_query"])
 
-    def branch_op(self):
-        mytname = self.myTables[0][0] 
-        myt = self.myTables[0][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-        # print(myt)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def bank_account_op(self):
+# to set
+    def bank_account_op(self, acc_num):
         mytname = self.myTables[1][0] 
         myt = self.myTables[1][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [0,1,1,0,0,0]
 
         # print(mytname)
         # print(myt)
@@ -78,73 +101,7 @@ class BusinessCustomer:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def department_op(self):
-        mytname = self.myTables[2][0] 
-        myt = self.myTables[2][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-        # print(myt)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)      
-
-    def employee_op(self):
-        mytname = self.myTables[3][0] 
-        myt = self.myTables[3][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-        # print(myt)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def branch_managed_by_op(self):
-        mytname = self.myTables[4][0] 
-        myt = self.myTables[4][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def customer_op(self):
-        mytname = self.myTables[5][0] 
-        myt = self.myTables[5][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp,"account_number",acc_num)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -153,94 +110,14 @@ class BusinessCustomer:
     def customer_phone_number_op(self):
         mytname = self.myTables[6][0] 
         myt = self.myTables[6][1] 
-        req_ops = [1,1,0,1,1,1]
+        req_ops = [1,1,0,1,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def collateral_op(self):
-        mytname = self.myTables[7][0] 
-        myt = self.myTables[7][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def documents_link_op(self):
-        mytname = self.myTables[8][0] 
-        myt = self.myTables[8][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def personal_customer_op(self):
-        mytname = self.myTables[9][0] 
-        myt = self.myTables[9][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
-    def business_customer_op(self):
-        mytname = self.myTables[10][0] 
-        myt = self.myTables[10][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def savings_account_op(self):
-        mytname = self.myTables[11][0] 
-        myt = self.myTables[11][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -249,62 +126,35 @@ class BusinessCustomer:
     def current_account_op(self):
         mytname = self.myTables[12][0] 
         myt = self.myTables[12][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            # self.print_query_menu(mytname,req_ops)
+            # inp = input("Enter your choice : ")
+            acc_num = self.execute_query(myt,mytname,req_ops,2,"cin",self.bc_id)
+            # print(acc_num)
+            if acc_num==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return self.bank_account_op(acc_num[0][0])
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
-    
-    def minor_account_op(self):
-        mytname = self.myTables[13][0] 
-        myt = self.myTables[13][1] 
-        req_ops = [1,1,1,0,1,1]
 
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def zero_balance_account_op(self):
-        mytname = self.myTables[14][0] 
-        myt = self.myTables[14][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def card_op(self):
+    def card_op(self, card_num):
         mytname = self.myTables[15][0] 
         myt = self.myTables[15][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp,"card_number",card_num)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -313,46 +163,57 @@ class BusinessCustomer:
     def debit_card_op(self):
         mytname = self.myTables[16][0] 
         myt = self.myTables[16][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            # self.print_query_menu(mytname,req_ops)
+            inp = input(myt["linked_account"])
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            elif int(inp) in self.bank_accounts:
+                card_num = self.execute_query(myt,mytname,req_ops,2,"linked_account",inp)
+            else:
+                print(self.errors["invalid_account_access"])
+                return
+            # print(acc_num)
+            if card_num==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return self.card_op(card_num[0][0])
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
-    
-    def prepaid_card_op(self):
-        mytname = self.myTables[17][0] 
-        myt = self.myTables[17][1] 
-        req_ops = [1,1,1,0,1,1]
 
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
     def atm_card_op(self):
         mytname = self.myTables[18][0] 
         myt = self.myTables[18][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            # self.print_query_menu(mytname,req_ops)
+            # inp = input("Enter your choice : ")
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            inp = input(myt["linked_account"])
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            elif int(inp) in self.bank_accounts:
+                card_num = self.execute_query(myt,mytname,req_ops,2,"linked_account",inp)
+            else:
+                print(self.errors["invalid_account_access"])
+                return
+            # print(acc_num)
+            if card_num==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return self.card_op(card_num[0][0])
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -361,15 +222,21 @@ class BusinessCustomer:
     def credit_card_op(self):
         mytname = self.myTables[19][0] 
         myt = self.myTables[19][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
+            # self.print_query_menu(mytname,req_ops)
+            # inp = input("Enter your choice : ")
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            card_num = self.execute_query(myt,mytname,req_ops,2,"cin",self.bc_id)
+            # print(acc_num)
+            if card_num==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return self.card_op(card_num[0][0])
+            
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
@@ -377,15 +244,29 @@ class BusinessCustomer:
     def account_linked_creditcard_op(self):
         mytname = self.myTables[20][0] 
         myt = self.myTables[20][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
+            # self.print_query_menu(mytname,req_ops)
+            # inp = input("Enter your choice : ")
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            inp = input(myt["linked_account"])
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            elif int(inp) in self.bank_accounts:
+                card_num = self.execute_query(myt,mytname,req_ops,2,"linked_account",inp)
+            else:
+                print(self.errors["invalid_account_access"])
+                return
+            # print(acc_num)
+            if card_num==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return self.card_op(card_num[0][0])
+            
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
@@ -393,15 +274,15 @@ class BusinessCustomer:
     def loan_op(self):
         mytname = self.myTables[21][0] 
         myt = self.myTables[21][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
+            return self.execute_query(myt,mytname,req_ops,inp,"loan_given_to",self.bc_id)
+            
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
@@ -409,14 +290,22 @@ class BusinessCustomer:
     def collateral_loan_op(self):
         mytname = self.myTables[22][0] 
         myt = self.myTables[22][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.loan_ids == []:
+                print(self.statements["nothing_found"])
+                return
+            for i in self.loan_ids:
+                temp2 = self.execute_query(myt,mytname,req_ops,inp,"loan_id",i)
+                if temp2!=[]:
+                    temp+=temp2
+            return temp
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -425,30 +314,22 @@ class BusinessCustomer:
     def non_collateral_loan_op(self):
         mytname = self.myTables[23][0] 
         myt = self.myTables[23][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def documents_pdf_op(self):
-        mytname = self.myTables[24][0] 
-        myt = self.myTables[24][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.loan_ids == []:
+                print(self.statements["nothing_found"])
+                return
+            for i in self.loan_ids:
+                temp2 = self.execute_query(myt,mytname,req_ops,inp,"loan_id",i)
+                if temp2!=[]:
+                    temp+=temp2
+            return temp
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -457,14 +338,25 @@ class BusinessCustomer:
     def loan_account_op(self):
         mytname = self.myTables[25][0] 
         myt = self.myTables[25][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.loan_ids == []:
+                print(self.statements["nothing_found"])
+                return
+            if inp=="2":
+                for i in self.loan_ids:
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"loan_id",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                return temp
+            else:
+                self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -473,14 +365,14 @@ class BusinessCustomer:
     def insurance_op(self):
         mytname = self.myTables[26][0] 
         myt = self.myTables[26][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp,"nominee_id",self.bc_id)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -489,14 +381,22 @@ class BusinessCustomer:
     def asset_insurance_op(self):
         mytname = self.myTables[27][0] 
         myt = self.myTables[27][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.policy_ids == []:
+                print(self.statements["nothing_found"])
+                return
+            for i in self.policy_ids:
+                temp2 = self.execute_query(myt,mytname,req_ops,inp,"policy_id",i)
+                if temp2!=[]:
+                    temp+=temp2
+            return temp
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -505,62 +405,52 @@ class BusinessCustomer:
     def loan_protection_insurance_op(self):
         mytname = self.myTables[28][0] 
         myt = self.myTables[28][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.loan_ids == []:
+                print(self.statements["nothing_found"])
+                return
+            for i in self.loan_ids:
+                temp2 = self.execute_query(myt,mytname,req_ops,inp,"loan_id",i)
+                if temp2!=[]:
+                    temp+=temp2
+            return temp
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
-    
-    def term_life_insurance_op(self):
-        mytname = self.myTables[29][0] 
-        myt = self.myTables[29][1] 
-        req_ops = [1,1,1,0,1,1]
 
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def medical_insurance_op(self):
-        mytname = self.myTables[30][0] 
-        myt = self.myTables[30][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
     def transaction_details_op(self):
         mytname = self.myTables[31][0] 
         myt = self.myTables[31][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            if inp=="2":
+                for i in self.bank_accounts:
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"from_account_number",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"to_account_number",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                return temp
+            else:
+                self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -569,14 +459,26 @@ class BusinessCustomer:
     def passbook_op(self):
         mytname = self.myTables[32][0] 
         myt = self.myTables[32][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            inp = input(myt["passbook_account_number"])
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            elif int(inp) in self.bank_accounts:
+                pass_books = self.execute_query(myt,mytname,req_ops,2,"passbook_account_number",inp)
+            else:
+                print(self.errors["invalid_account_access"])
+                return
+            # print(acc_num)
+            if pass_books==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return pass_books
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -585,14 +487,26 @@ class BusinessCustomer:
     def upi_op(self):
         mytname = self.myTables[33][0] 
         myt = self.myTables[33][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            inp = input(myt["account_number_linked"])
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            elif int(inp) in self.bank_accounts:
+                upi_ids = self.execute_query(myt,mytname,req_ops,2,"account_number_linked",inp)
+            else:
+                print(self.errors["invalid_account_access"])
+                return
+            # print(acc_num)
+            if upi_ids==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return upi_ids
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -601,14 +515,28 @@ class BusinessCustomer:
     def upi_transactions_op(self):
         mytname = self.myTables[34][0] 
         myt = self.myTables[34][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.upi_ids == []:
+                print(self.statements["nothing_found"])
+                return
+            if inp=="2":
+                for i in self.upi_ids:
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"from_upi_id",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"to_upi_id",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                return temp
+            else:
+                self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -617,14 +545,14 @@ class BusinessCustomer:
     def bill_payment_op(self):
         mytname = self.myTables[35][0] 
         myt = self.myTables[35][1] 
-        req_ops = [1,1,1,1,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -633,14 +561,14 @@ class BusinessCustomer:
     def card_transactions_op(self):
         mytname = self.myTables[36][0] 
         myt = self.myTables[36][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -649,14 +577,25 @@ class BusinessCustomer:
     def auto_payment_op(self):
         mytname = self.myTables[37][0] 
         myt = self.myTables[37][1] 
-        req_ops = [1,1,1,1,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            if inp=="2":
+                for i in self.bank_accounts:
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"autodebit_account_number",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                return temp
+            else:
+                self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -665,14 +604,25 @@ class BusinessCustomer:
     def auto_payment_loan_op(self):
         mytname = self.myTables[38][0] 
         myt = self.myTables[38][1] 
-        req_ops = [1,1,1,1,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            if inp=="2":
+                for i in self.bank_accounts:
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"linked_loan_account",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                return temp
+            else:
+                self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -681,7 +631,7 @@ class BusinessCustomer:
     def auto_bill_payment_op(self):
         mytname = self.myTables[39][0] 
         myt = self.myTables[39][1] 
-        req_ops = [1,1,1,1,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
@@ -693,98 +643,45 @@ class BusinessCustomer:
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
-    
-    def transaction_log_op(self):
-        mytname = self.myTables[40][0] 
-        myt = self.myTables[40][1] 
-        req_ops = [1,1,0,0,1,1]
 
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def ad_channel_op(self):
-        mytname = self.myTables[41][0] 
-        myt = self.myTables[41][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def advertisement_op(self):
-        mytname = self.myTables[42][0] 
-        myt = self.myTables[42][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
     def user_credential_op(self):
         mytname = self.myTables[43][0] 
         myt = self.myTables[43][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [0,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp,"user_id",self.bc_id)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
-    
-    def employee_credential_op(self):
-        mytname = self.myTables[44][0] 
-        myt = self.myTables[44][1] 
-        req_ops = [1,1,1,0,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-
+ 
     def closed_account_op(self):
         mytname = self.myTables[45][0] 
         myt = self.myTables[45][1] 
-        req_ops = [1,1,0,1,1,1]
+        req_ops = [1,1,0,1,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            if inp=="2":
+                for i in self.bank_accounts:
+                    temp2 = self.execute_query(myt,mytname,req_ops,inp,"account_number",i)
+                    if temp2!=[]:
+                        temp+=temp2
+                return temp
+            else:
+                self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -793,62 +690,42 @@ class BusinessCustomer:
     def blocked_card_op(self):
         mytname = self.myTables[46][0] 
         myt = self.myTables[46][1] 
-        req_ops = [1,1,0,1,1,1]
+        req_ops = [1,1,0,1,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
-    def fixed_deposit_op(self):
-        mytname = self.myTables[47][0] 
-        myt = self.myTables[47][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
             print(e)
 
-    def recurring_deposit_op(self):
-        mytname = self.myTables[48][0] 
-        myt = self.myTables[48][1] 
-        req_ops = [1,1,1,1,1,1]
-
-        # print(mytname)
-
-        try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
-        
-        except Exception as e:
-            print(self.errors["input_mismatch_in_query"])
-            print(e)
-    
     def chequebook_op(self):
         mytname = self.myTables[49][0] 
         myt = self.myTables[49][1] 
-        req_ops = [1,1,0,0,1,1]
+        req_ops = [1,1,0,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            inp = input(myt["account_number"])
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            elif int(inp) in self.bank_accounts:
+                pass_books = self.execute_query(myt,mytname,req_ops,2,"account_number",inp)
+            else:
+                print(self.errors["invalid_account_access"])
+                return
+            # print(acc_num)
+            if pass_books==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return pass_books
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -857,14 +734,26 @@ class BusinessCustomer:
     def bank_statement_op(self):
         mytname = self.myTables[50][0] 
         myt = self.myTables[50][1] 
-        req_ops = [1,1,0,0,1,1]
+        req_ops = [0,1,0,0,0,0]
 
         # print(mytname)
 
         try:
-            self.print_query_menu(mytname,req_ops)
-            inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            inp = input(myt["account_number"])
+            # self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
+            if self.bank_accounts == []:
+                print(self.statements["nothing_found"])
+                return
+            elif int(inp) in self.bank_accounts:
+                pass_books = self.execute_query(myt,mytname,req_ops,2,"account_number",inp)
+            else:
+                print(self.errors["invalid_account_access"])
+                return
+            # print(acc_num)
+            if pass_books==[]:
+                print(self.statements["nothing_found"])
+            else:
+                return pass_books
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -873,14 +762,14 @@ class BusinessCustomer:
     def otps_op(self):
         mytname = self.myTables[51][0] 
         myt = self.myTables[51][1] 
-        req_ops = [1,1,0,0,1,1]
+        req_ops = [1,1,0,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp,"cin",self.bc_id)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -889,14 +778,22 @@ class BusinessCustomer:
     def installment_op(self):
         mytname = self.myTables[52][0] 
         myt = self.myTables[52][1] 
-        req_ops = [1,1,1,0,1,1]
+        req_ops = [1,1,1,0,0,0]
 
         # print(mytname)
 
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            temp = []
+            if self.loan_ids == []:
+                print(self.statements["nothing_found"])
+                return
+            for i in self.loan_ids:
+                temp2 = self.execute_query(myt,mytname,req_ops,inp,"loan_id",i)
+                if temp2!=[]:
+                    temp+=temp2
+            return temp
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])

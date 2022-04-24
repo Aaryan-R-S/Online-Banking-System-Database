@@ -62,7 +62,7 @@
 ☐ Main Functionalities:
 
 ☐ [Database Administrator]
-☐      01. All the functionalities of a Database Admin like modifying relational schemas, deleting or adding a new relation, involve modifying the basic structure of the database alongwith the application and hence, are beyond the scope of our application. 
+☐      01. All the functionalities of a Database Admin like modifying relational schemas, deleting or adding a new relation, involve modifying the basic structure of the database alongwith the application and hence, are beyond the scope of our application, hence, omitted. 
 
 ☐ [Admin - Root User]
 ☐      01. Read all data from a given table
@@ -186,4 +186,9 @@
 ☐      30. Closed_Account                -        CRD   own
 ☐      31. Blocked_Card                  -        CRD   own
 
-☐ Complex queries, views, indices, grants, users, etc. refer rubric
+☐ Views (4) and grants (2) on workbench
+☐ Complex queries (embedded and optimized) (10+4) in bf
+☐ Index tables (identify attributes) (5)
+☐ Triggers (4)
+☐ Update report queries
+☐ UI

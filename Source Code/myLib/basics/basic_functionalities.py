@@ -28,7 +28,7 @@ class RunQuery:
         elif(query_obj["op_type"]=="c"):
             self.create_query(query_obj)   
         elif(query_obj["op_type"]=="r"):
-            self.fetch_query(query_obj)
+            return self.fetch_query(query_obj)
         elif(query_obj["op_type"]=="u"):
             self.update_query(query_obj)
         elif(query_obj["op_type"]=="d"):
@@ -48,7 +48,7 @@ class RunQuery:
         try:
             self.connection.cur.execute(queryInsert)
             self.connection.con.commit()
-            print(self.statements["query_success"])
+            print(self.statements["query_success"], end=" ")
             print(self.connection.cur.rowcount, "record inserted.")
         except Exception as e:
             print(self.errors["invalid_query"])
@@ -60,10 +60,12 @@ class RunQuery:
         queryFetch = '''SELECT * FROM {} WHERE {} = {}'''.format(query_obj["relation"], lis[0][0], f"'{str(lis[0][1])}'")
         # print(queryFetch)
         self.connection.cur = self.connection.con.cursor()
+        myList = []
         try:
             self.connection.cur.execute(queryFetch)
-            print(self.statements["query_success"])
-            print(self.connection.cur.fetchall())
+            print(self.statements["query_success"], end=" ")
+            myList = self.connection.cur.fetchall()
+            # print(myList)
             if self.connection.cur.rowcount>1:
                 print(self.connection.cur.rowcount, "records fetched.")
             else:
@@ -71,6 +73,7 @@ class RunQuery:
         except Exception as e:
             print(self.errors["invalid_query"])
             print(e)
+        return myList
     
     def update_query(self, query_obj):
         lis = list(query_obj["data"].items())
@@ -85,7 +88,7 @@ class RunQuery:
         try:
             self.connection.cur.execute(queryUpdate)
             self.connection.con.commit()
-            print(self.statements["query_success"])
+            print(self.statements["query_success"], end=" ")
             if self.connection.cur.rowcount>1:
                 print(self.connection.cur.rowcount, "records updated.")
             else:
@@ -103,7 +106,7 @@ class RunQuery:
         try:
             self.connection.cur.execute(queryUpdate)
             self.connection.con.commit()
-            print(self.statements["query_success"])
+            print(self.statements["query_success"], end=" ")
             if self.connection.cur.rowcount>1:
                 print(self.connection.cur.rowcount, "records deleted.")
             else:
@@ -111,3 +114,27 @@ class RunQuery:
         except Exception as e:
             print(self.errors["invalid_query"])
             print(e)
+
+    def search_credentials(self, login_id, login_pwd, which):
+        if which==1:
+            queryFetchEmployee = '''SELECT employee_id FROM employee_credential WHERE employee_login_id = "{}" AND employee_login_password = "{}" '''.format(login_id, login_pwd)
+        else:
+            queryFetchUser = '''SELECT user_id FROM user_credential WHERE user_login_id = "{}" AND user_login_password = "{}" '''.format(login_id, login_pwd)
+        self.connection.cur = self.connection.con.cursor()
+        myList = []
+        try:
+            if which==1:
+                self.connection.cur.execute(queryFetchEmployee)
+            else:
+                self.connection.cur.execute(queryFetchUser)
+            myList += self.connection.cur.fetchall()
+            print(self.statements["query_success"], end=" ")
+            # print(myList)
+            if len(myList)>1:
+                print(len(myList), "records fetched.")
+            else:
+                print(len(myList), "record fetched.")
+        except Exception as e:
+            print(self.errors["invalid_query"])
+            print(e)
+        return myList
