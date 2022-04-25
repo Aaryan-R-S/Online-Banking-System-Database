@@ -46,6 +46,7 @@ CREATE TABLE `employee` (
   KEY `employee_ibfk_1` (`ifsc_code`),
   KEY `employee_ibfk_2` (`employee_account_number`),
   KEY `employee_ibfk_3` (`department`),
+  KEY `idx_employee_department` (`department`),
   CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`ifsc_code`) REFERENCES `branch` (`ifsc_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`employee_account_number`) REFERENCES `bank_account` (`account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`department`) REFERENCES `department` (`department_id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -75,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-10 21:09:56
+-- Dump completed on 2022-04-26  0:11:52

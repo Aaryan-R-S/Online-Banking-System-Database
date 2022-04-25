@@ -187,8 +187,10 @@
 ☐      31. Blocked_Card                  -        CRD   own
 
 ☐ Views (4) and grants (2) on workbench
-☐ Complex queries (embedded and optimized) (10+4) in bf
 ☐ Index tables (identify attributes) (5)
 ☐ Triggers (4)
 ☐ Update report queries
+☐ update Dump
+☐ Complex queries (embedded and optimized) (10+4) in bf
+
 ☐ UI

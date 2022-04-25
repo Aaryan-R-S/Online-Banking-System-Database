@@ -27,12 +27,9 @@ CREATE TABLE `otps` (
   `valid_from` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `account_number` bigint unsigned NOT NULL,
   `valid_till` timestamp NULL DEFAULT ((`valid_from` + interval 5 minute)),
-
   `otp` mediumint unsigned NOT NULL,
   PRIMARY KEY (`cin`,`valid_from`),
-
   KEY `otps_ibfk_1` (`account_number`),
-
   CONSTRAINT `otps_ibfk_1` FOREIGN KEY (`account_number`) REFERENCES `bank_account` (`account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `otps_ibfk_2` FOREIGN KEY (`cin`) REFERENCES `customer` (`cin`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -57,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-10 21:09:52
+-- Dump completed on 2022-04-26  0:11:48

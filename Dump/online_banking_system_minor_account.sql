@@ -29,11 +29,8 @@ CREATE TABLE `minor_account` (
   `parent_cin` int unsigned NOT NULL,
   `parent_account_number` bigint unsigned NOT NULL,
   PRIMARY KEY (`account_number`),
-
   UNIQUE KEY `parent_cin` (`parent_cin`),
-
   KEY `minor_account_ibfk_1` (`parent_account_number`),
-
   CONSTRAINT `minor_account_ibfk_1` FOREIGN KEY (`parent_account_number`) REFERENCES `savings_account` (`account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `minor_account_ibfk_2` FOREIGN KEY (`account_number`) REFERENCES `bank_account` (`account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `minor_account_ibfk_3` FOREIGN KEY (`parent_cin`) REFERENCES `personal_customer` (`cin`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -59,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-10 21:09:56
+-- Dump completed on 2022-04-26  0:11:49

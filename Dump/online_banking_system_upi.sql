@@ -30,6 +30,7 @@ CREATE TABLE `upi` (
   `transaction_limit_remaining` mediumint unsigned NOT NULL DEFAULT (0),
   PRIMARY KEY (`upi_id`),
   KEY `upi_ibfk_1` (`account_number_linked`),
+  KEY `idx_upi_upi_id` (`upi_id`),
   CONSTRAINT `upi_ibfk_1` FOREIGN KEY (`account_number_linked`) REFERENCES `bank_account` (`account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `upi_chk_1` CHECK ((locate(_utf8mb4'@bank',`upi_id`) > 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-10 21:09:53
+-- Dump completed on 2022-04-26  0:11:49

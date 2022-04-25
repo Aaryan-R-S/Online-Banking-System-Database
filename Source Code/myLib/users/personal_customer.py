@@ -123,7 +123,7 @@ class PersonalCustomer:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp,"cin",self.pc_id)
+            return self.execute_query(myt,mytname,req_ops,inp,"cin",self.pc_id)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])

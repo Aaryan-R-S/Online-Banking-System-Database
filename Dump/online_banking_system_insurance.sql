@@ -33,6 +33,7 @@ CREATE TABLE `insurance` (
   `nominee_id` int unsigned NOT NULL,
   PRIMARY KEY (`policy_id`),
   KEY `insurance_ibfk_1` (`nominee_id`),
+  KEY `idx_insurance_nominee_id` (`nominee_id`),
   CONSTRAINT `insurance_ibfk_1` FOREIGN KEY (`nominee_id`) REFERENCES `customer` (`cin`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=100101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-10 21:09:50
+-- Dump completed on 2022-04-26  0:11:52

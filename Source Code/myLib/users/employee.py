@@ -35,10 +35,10 @@ class Employee:
             self.gt.create(myt,mytname)
         elif ind == 1:
             if emp_id != None:
-                self.gt.read(myt,mytname,emp_id)
+                return self.gt.read(myt,mytname,emp_id)
             else:
                 print("[Read some entries]")
-                self.gt.read(myt,mytname)
+                return self.gt.read(myt,mytname)
         elif ind == 2:
             if emp_id != None:
                 self.gt.update(myt,mytname,emp_id)
@@ -69,7 +69,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp, self.emp_id)
+            return self.execute_query(myt,mytname,req_ops,inp, self.emp_id)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -86,7 +86,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -102,7 +102,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -134,7 +134,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -150,7 +150,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -166,7 +166,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -182,7 +182,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -198,7 +198,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -214,7 +214,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -230,7 +230,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -246,7 +246,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -262,7 +262,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -278,7 +278,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -294,7 +294,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -310,7 +310,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -326,7 +326,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -342,7 +342,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -358,7 +358,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -374,7 +374,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -390,7 +390,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -406,7 +406,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -422,7 +422,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -438,7 +438,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -454,7 +454,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -470,7 +470,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -486,7 +486,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -502,7 +502,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -518,7 +518,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -534,7 +534,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -550,7 +550,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -566,7 +566,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -582,7 +582,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -598,7 +598,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -615,7 +615,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp,self.emp_id)
+            return self.execute_query(myt,mytname,req_ops,inp,self.emp_id)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -631,7 +631,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -647,7 +647,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -663,7 +663,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -679,7 +679,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -695,7 +695,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -711,7 +711,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])
@@ -727,7 +727,7 @@ class Employee:
         try:
             self.print_query_menu(mytname,req_ops)
             inp = input("Enter your choice : ")
-            self.execute_query(myt,mytname,req_ops,inp)
+            return self.execute_query(myt,mytname,req_ops,inp)
         
         except Exception as e:
             print(self.errors["input_mismatch_in_query"])

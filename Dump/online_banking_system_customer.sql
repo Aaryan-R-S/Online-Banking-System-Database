@@ -35,6 +35,7 @@ CREATE TABLE `customer` (
   `pincode` mediumint NOT NULL,
   PRIMARY KEY (`cin`),
   UNIQUE KEY `pan_number` (`pan_number`),
+  KEY `idx_customer_pincode` (`pincode`),
   CONSTRAINT `customer_chk_1` CHECK (((`pincode` >= 100000) and (`pincode` <= 999999)))
 ) ENGINE=InnoDB AUTO_INCREMENT=100000801 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -58,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-10 21:09:49
+-- Dump completed on 2022-04-26  0:11:50

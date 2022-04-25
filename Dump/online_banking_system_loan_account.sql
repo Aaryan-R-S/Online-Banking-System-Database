@@ -26,9 +26,7 @@ CREATE TABLE `loan_account` (
   `loan_id` mediumint unsigned NOT NULL,
   `account_number` bigint unsigned NOT NULL,
   PRIMARY KEY (`loan_id`),
-
   KEY `loan_account_ibfk_1` (`account_number`),
-
   CONSTRAINT `loan_account_ibfk_1` FOREIGN KEY (`account_number`) REFERENCES `bank_account` (`account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `loan_account_ibfk_2` FOREIGN KEY (`loan_id`) REFERENCES `loan` (`loan_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-10 21:10:06
+-- Dump completed on 2022-04-26  0:12:01
