@@ -121,7 +121,9 @@ Email ID - aaryan20004@iiitd.ac.in
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-
+* Rahul Agrawal - rahul20108@iiitd.ac.in
+* Sanyam Goyal - sanyam20116@iiitd.ac.in
+* Prakhar Rai - prakhar20099@iiitd.ac.in
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
