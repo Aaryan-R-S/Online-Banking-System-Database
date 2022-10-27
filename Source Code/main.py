@@ -8,6 +8,7 @@ from myLib.users import personal_customer as pc
 from myLib.users import business_customer as bc
 
 print()
+
 myConnection = connect_to_db.DBConnector()
 myBf = bf.RunQuery(myConnection)
 
